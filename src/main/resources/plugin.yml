@@ -1,0 +1,12 @@
+name: Hardcore
+version: ${project.version}
+main: net.badbird5907.hardcore.Hardcore
+api-version: 1.17
+description: Hardcore
+commands:
+  deaths:
+    aliases:
+      - info
+      - playerinfo
+      - lives
+    usage: /<command> <player>:pap
