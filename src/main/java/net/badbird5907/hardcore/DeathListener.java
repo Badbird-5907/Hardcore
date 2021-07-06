@@ -11,10 +11,12 @@ public class DeathListener implements Listener {
     public void onDeath(PlayerDeathEvent event){
         PlayerDataManager.loadData(event.getEntity().getUniqueId()).death();
     }
+
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         PlayerDataManager.join(event.getPlayer());
     }
+
     @EventHandler
     public void onLeave(PlayerQuitEvent event){
         PlayerDataManager.leave(event.getPlayer());
