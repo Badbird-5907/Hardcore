@@ -11,18 +11,19 @@ import java.util.UUID;
 
 @Getter
 public class PlayerData {
-    private int deaths,livesLeft = 3;
+    private int deaths, livesLeft = 3;
     private final UUID uuid;
     private final String name;
     private boolean dead = false;
-    public PlayerData(UUID uuid,String name){
+
+    public PlayerData(UUID uuid, String name) {
         this.uuid = uuid;
         this.name = name;
         this.deaths = 0;
     }
-    public void death(){
-        if (dead)
-            return;
+
+    public void death() {
+        if (dead) return;
         deaths++;
         livesLeft--;
         Bukkit.broadcastMessage(ChatColor.RED + name + " has died! The now have " + livesLeft + " lives left!");
@@ -33,7 +34,8 @@ public class PlayerData {
         }
         save();
     }
-    public void save(){
-        PlayerDataManager.saveFile(new Gson().toJson(this),new File(Hardcore.getInstance().getDataFolder().getAbsolutePath() + "/" + uuid + ".json"));
+
+    public void save() {
+        PlayerDataManager.saveFile(new Gson().toJson(this), new File(Hardcore.getInstance().getDataFolder().getAbsolutePath() + "/" + uuid + ".json"));
     }
 }
